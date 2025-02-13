@@ -1,4 +1,4 @@
-package seleniumPackage;
+package testCasesPackage;
 
 import java.time.Duration;
 
@@ -7,7 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class ScrollClass {
+public class OfferedAcademicesTC {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -15,7 +15,7 @@ public class ScrollClass {
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://demo.itlearn360.com/");
-		//driver.manage().window().maximize();
+		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 		driver.findElement(By.xpath("//*[@id=\"loginlabel\"]")).click();
@@ -27,11 +27,12 @@ public class ScrollClass {
 		driver.findElement(By.xpath("//*[@id=\"learn-press-user-profile\"]/ul/li[1]"));
 		
 		driver.findElement(By.xpath("//*[@id=\"learn-press-user-profile\"]/ul/li[3]/a")).click();
-		//driver.findElement(By.xpath("//*[@id=\"tab-academies\"]/div/div/ul/li[4]/form/div/button")).click();
 		
-		// to perform Scroll on application using Selenium
-				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("window.scrollBy(0,1500)", "");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,300)", "");
+		
+		driver.findElement(By.xpath("//*[@id=\"tab-academies\"]/div/div/ul/li[1]/form/div/button")).click();
+		
 	}
 
 }
